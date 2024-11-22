@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Runtime.InteropServices;
 
 namespace EndlessCarChase
 {
@@ -10,6 +11,9 @@ namespace EndlessCarChase
     /// </summary>
     public class ECCLoadLevel : MonoBehaviour
     {
+        [DllImport("__Internal")]
+        private static extern void ShowAdv();
+
         [Tooltip("How many seconds to wait before loading a level or URL")]
         public float loadDelay = 1;
 
@@ -82,7 +86,10 @@ namespace EndlessCarChase
         /// </summary>
         /// <param name="levelName">Level name.</param>
         public void LoadLevel()
-        {
+        {   
+            // Показ Яндекс Рекламы
+            ShowAdv();
+
             Time.timeScale = 1;
 
             // If there is a sound, play it from the source
@@ -111,7 +118,10 @@ namespace EndlessCarChase
         /// Restarts the current level.
         /// </summary>
         public void RestartLevel()
-        {
+        {   
+            // Показ Яндекс Рекламы
+            ShowAdv();
+
             Time.timeScale = 1;
 
             // If there is a sound, play it from the source

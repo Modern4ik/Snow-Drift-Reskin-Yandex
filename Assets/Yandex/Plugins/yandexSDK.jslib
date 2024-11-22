@@ -5,5 +5,19 @@ mergeInto(LibraryManager.library, {
         var buffer = _malloc(bufferSize);
         stringToUTF8(lang, buffer, bufferSize);
         return buffer;
-    }
+    },
+
+    ShowAdv : function() {
+        ysdk.adv.showFullscreenAdv({
+            callbacks: {
+                onClose: function(wasShown) {
+                  // Действие после закрытия рекламы.
+                  console.log("AD closed");
+                },
+                onError: function(error) {
+                  // Действие в случае ошибки.
+                }
+            }
+        })
+    },
 });
