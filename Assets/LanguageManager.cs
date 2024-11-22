@@ -19,6 +19,8 @@ public class LanguageManager : MonoBehaviour {
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            CurrentLanguage = GetLang();
         }
         else
         {
